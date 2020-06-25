@@ -1,1 +1,27 @@
+day-1
 
+1. n repeated elements in 2n sized array code
+
+#include<map>
+#include<iterator>
+class Solution {
+public:
+    int repeatedNTimes(vector<int>& A) {
+        map<int,int>mymap;
+        for(int i=0;i<=9;i=i+1){
+            mymap.insert(pair<int,int>(i,0));
+        }
+        for(int j=0;j<A.size();j++){
+            int k=A[j];
+            mymap[k]+=1;
+        }
+        map<int,int>::iterator itr;int l;
+        for(itr=mymap.begin();itr!=mymap.end();++itr){
+            if(itr->second>1){
+                l=itr->first;
+                break;
+            }
+        }
+        return l;
+    }
+};
