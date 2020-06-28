@@ -25,3 +25,24 @@ public:
         return l;
     }
 };
+
+2. jewels and stonrs code.
+
+#include<cstring>
+class Solution {
+public:
+    int numJewelsInStones(string J, string S) {
+        multiset<char>s;
+        for(int i=0;i<S.length();i++){
+            char k=S[i];
+            s.insert(k);
+        }
+        int sum=0;
+        for(int j=0;j<J.length();j++){
+            if(s.find(J[j])!=s.end()){
+                sum+=s.count(J[j]);
+            }
+        }
+        return sum;
+    }
+};
